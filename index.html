@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content=:"width=device-width, initial-scale=1.0">
   <title>💾 VonDingle Enterprises Internal Portal</title>
   <style>
     body {
@@ -16,13 +17,14 @@
       display: flex;
       justify-content: center;
       margin-top: 20px;
-    }
-
+   
     .content-columns {
       display: flex;
       gap: 20px;
       align-items: flex-start;
-    }
+      flex-wrap: wrap;
+      justify-content: center;
+}
 
     .left-column,
     .right-column,
@@ -36,7 +38,8 @@
       border: 3px solid #0000FF;
       background: #C0C0C0;
       padding: 10px;
-      width: 320px;
+      width: 100%;
+      max-width: 700px;
       box-shadow: 6px 6px #000000;
     }
 
@@ -94,7 +97,7 @@
     .implant-display,
     .terminal,
     .gif-container {
-      width: 700px;
+      width: 100%;
       max-width: 700px;
       background: #C0C0C0;
       border: 3px solid #0000FF;
