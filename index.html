@@ -13,28 +13,34 @@
       margin: 0;
       padding: 0;
     }
+  
+  .main-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .content-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .left-column,
+  .right-column,
+  .admin-panel {
+    flex: 1 1 300px;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .main-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .content-columns {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .left-column,
-    .right-column,
-    .admin-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
 
     .window {
       border: 3px solid #0000FF;
