@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content=:"width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💾 VonDingle Enterprises Internal Portal</title>
   <style>
     body {
@@ -17,14 +18,15 @@
       display: flex;
       justify-content: center;
       margin-top: 20px;
-   
+    }
+
     .content-columns {
       display: flex;
       gap: 20px;
       align-items: flex-start;
       flex-wrap: wrap;
       justify-content: center;
-}
+    }
 
     .left-column,
     .right-column,
@@ -126,6 +128,11 @@
       padding: 10px;
     }
 
+    .implant-inner a {
+      color: #00FF00;
+      font-weight: bold;
+    }
+
     .implant-inner img {
       max-width: 100%;
       height: auto;
@@ -146,15 +153,29 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    button {
+      cursor: pointer;
+    }
   </style>
   <script>
     function displayGif(gifName, terminalOutput) {
-      document.getElementById('gif-container').innerHTML = `<img src="${gifName}" alt="Gif" />`;
+      document.getElementById('gif-container').innerHTML =
+        `<img src="${gifName}" alt="Diagnostic Display" />`;
 
-      var terminal = document.querySelector('.terminal');
+      const terminal = document.querySelector('.terminal');
       terminal.innerHTML += `<br> > Displaying ${gifName}...<br>`;
       terminal.innerHTML += terminalOutput || `> Loading ${gifName}...<br>`;
       terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function activateProtocol503() {
+      const protocolStatus = document.getElementById('protocol-status');
+      protocolStatus.style.display = 'block';
+
+      setTimeout(() => {
+        protocolStatus.innerHTML += '<p class="label"><strong> > Mind control successfully activated. Neuron Suppression initialized on Subject.</strong></p>';
+      }, 3000);
     }
   </script>
 </head>
@@ -167,21 +188,22 @@
   <div class="main-container">
     <div class="content-columns">
 
+      <!-- LEFT COLUMN -->
       <div class="left-column">
         <div class="window">
           <div class="title-bar">📂 SYSTEM NOTICE - CEO CONNECTED</div>
           <p><span class="label">User:</span> <strong>Buster VonDingle</strong> (Acting CEO)</p>
           <p class="blink">Unauthorized access will be reported to internal security nodes.</p>
           <p>This interface is intended for company staff and implant distributors only.</p>
-          <img src="buster-glow.gif" alt="Caution" class="gif" />
+          <img src="buster-glow.gif" alt="Caution: Buster Active" class="gif" />
         </div>
 
         <div class="window">
           <div class="title-bar">📁 FILE SERVER - DOWNLOADS</div>
           <ul>
-            <li><span class="label"></span> <a href="vx_overridepatch.html">VX_OverridePatch.exe</a></li>
-            <li><span class="label"></span> <a href="implant_diagnostics.html">Implant_Diagnostics_v1.9.txt</a></li>
-            <li><span class="label"></span> <a href="dinglesoft_hacklogs_2003.html">DingleSoft_Hacklogs_2003.zip</a></li>
+            <li><a href="vx_overridepatch.html">VX_OverridePatch.exe</a></li>
+            <li><a href="implant_diagnostics.html">Implant_Diagnostics_v1.9.txt</a></li>
+            <li><a href="dinglesoft_hacklogs_2003.html">DingleSoft_Hacklogs_2003.zip</a></li>
           </ul>
         </div>
 
@@ -193,7 +215,7 @@
         </div>
       </div>
 
-
+      <!-- RIGHT COLUMN -->
       <div class="right-column">
         <div class="implant-display">
           <div class="title-bar">🧠 Implant Visual Diagnostic - Model X4</div>
@@ -205,8 +227,7 @@
           </div>
         </div>
 
-        <div class="gif-container" id="gif-container">
-                </div>
+        <div class="gif-container" id="gif-container"></div>
 
         <div class="terminal">
           > connect uplink.vondingle.lan<br>
@@ -221,61 +242,48 @@
         </div>
       </div>
 
-<div class="admin-panel">
-  <div class="window">
-    <div class="title-bar">🛡️ ADMIN PANEL</div>
-    <p><span class="label">Access Level:</span> <strong>Root</strong></p>
-    <p><span class="label">Logs:</span> Intrusion attempt flagged on 05/09</p>
-    <p><span class="label">Overrides Enabled:</span></p>
-    <ul>
-      <li>Failsafe Bypass</li>
-      <li>Remote Shell</li>
-      <li>Biochip Sync</li>
-    </ul>
-    <button onclick="alert('ERROR: 409...Memory dumped to logs')">🛑 Lockdown System</button>
-  </div>
+      <!-- ADMIN PANEL -->
+      <div class="admin-panel">
+        <div class="window">
+          <div class="title-bar">🛡️ ADMIN PANEL</div>
+          <p><span class="label">Access Level:</span> <strong>Root</strong></p>
+          <p><span class="label">Logs:</span> Intrusion attempt flagged on 05/09</p>
+          <p><span class="label">Overrides Enabled:</span></p>
+          <ul>
+            <li>Failsafe Bypass</li>
+            <li>Remote Shell</li>
+            <li>Biochip Sync</li>
+          </ul>
+          <button onclick="alert('ERROR: 409...Memory dumped to logs')">🛑 Lockdown System</button>
+        </div>
 
-  <div class="window">
-    <div class="title-bar">📷 SECURITY CAMERA FEEDS</div>
-    <p><span class="label">CAM 01:</span> Main Hallway (OFFLINE)</p>
-    <img src="" alt="Camera Feed 1"/>
+        <div class="window">
+          <div class="title-bar">📷 SECURITY CAMERA FEEDS</div>
+          <p><span class="label">CAM 01:</span> Main Hallway (OFFLINE)</p>
+          <img src="camera-offline.gif" alt="Camera Feed 1" />
 
-    <p><span class="label">CAM 02:</span> Implant Lab (SIGNAL INTURRUPTED)</p>
-    <img src="" alt="Camera Feed 2" />
+          <p><span class="label">CAM 02:</span> Implant Lab (SIGNAL INTERRUPTED)</p>
+          <img src="camera-offline.gif" alt="Camera Feed 2" />
 
-    <p><span class="label">CAM 03:</span> <strong>CEO Live Feed</strong> (External Stream)</p>
-    <p><span class="label">Buster Live Feed:</span> 
-    <a href="https://twitch.tv/bustervondingle" target="_blank">📡 Watch on Twitch</a>
-    </p>
+          <p><span class="label">CAM 03:</span> <strong>CEO Live Feed</strong> (External Stream)</p>
+          <p><span class="label">Buster Live Feed:</span> 
+            <a href="https://twitch.tv/bustervondingle" target="_blank">📡 Watch on Twitch</a>
+          </p>
+        </div>
 
+        <div class="window">
+          <div class="title-bar">🔴 Protocol 503 - Synth Neurolink</div>
+          <button onclick="activateProtocol503()" style="font-size: 20px; padding: 20px 40px; background-color: red; color: white; border: none; width: 100%; border-radius: 10px; font-weight: bold;">
+            ⚠ Activate Protocol 503 ⚠
+          </button>
+          <div id="protocol-status" style="margin-top: 20px; color: red; display: none;">
+            <p><strong> > WARNING:</strong> Protocol 503 activation in progress... Neural synchronization initiating...</p>
+            <p><strong> > Mind Control Sequence:</strong> Complete. User now under control.</p>
+          </div>
+        </div>
+      </div>
 
-  </div>
-    <div class="window">
-  <div class="title-bar">🔴 Protocol 503 - Synth Neurolink </div>
-  <button onclick="activateProtocol503()" style="font-size: 20px; padding: 20px 40px; background-color: red; color: white; border: none; cursor: pointer; width: 100%; border-radius: 10px; font-weight: bold;">
-    ⚠ Activate Protocol 52 ⚠
-  </button>
-  <div id="protocol-status" style="margin-top: 20px; color: red; display: none;">
-    <p><strong> > WARNING:</strong> Protocol 503 activation in progress... Neural synchronization initiating...</p>
-    <p><strong> > Mind Control Sequence:</strong> Complete. User now under control.</p>
-  </div>
-</div>
-
-<script>
-  function activateProtocol503() {
-
-    const protocolStatus = document.getElementById('protocol-status');
-    protocolStatus.style.display = 'block';
-
-    setTimeout(() => {
-      protocolStatus.innerHTML += '<p class="label"><strong> > Mind control successfully activated. Neuron Supression initialized on Subject.</strong></p>';
-    }, 3000);
-  }
-</script>
-
-</div>
-
-
+    </div>
   </div>
 
 </body>
