@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💾 VonDingle Enterprises Internal Portal</title>
+  <style>
+    body {
+      background: url('bg-tile.jpg') repeat;
+      color: #00FF00;
+      font-family: Tahoma, Verdana, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .content-columns {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .left-column,
+    .right-column,
+    .admin-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .window {
+      border: 3px solid #0000FF;
+      background: #C0C0C0;
+      padding: 10px;
+      width: 320px;
+      box-shadow: 6px 6px #000000;
+    }
+
+    .title-bar {
+      background: #000080;
+      color: white;
+      font-weight: bold;
+      padding: 3px 6px;
+      font-size: 13px;
+      border-bottom: 2px solid #808080;
+    }
+
+    a {
+      color: #00FFFF;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    marquee {
+      font-weight: bold;
+      font-size: 16px;
+      color: red;
+      background: #C0C0C0;
+      border: 3px solid #0000FF;
+      padding: 5px;
+      margin: 20px;
+      box-shadow: 6px 6px #000000;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .gif {
+      display: block;
+      margin: 10px auto;
+    }
+
+    .label {
+      color: #00FF00;
+      font-weight: bold;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+      color: red;
+      font-weight: bold;
+    }
+
+    .implant-display,
+    .terminal,
+    .gif-container {
+      width: 700px;
+      max-width: 700px;
+      background: #C0C0C0;
+      border: 3px solid #0000FF;
+      box-shadow: 6px 6px #000000;
+      padding: 10px;
+    }
+
+    .terminal {
+      background: black;
+      color: #00FF00;
+      font-family: monospace;
+      height: 200px;
+      overflow-y: auto;
+    }
+
+    .implant-display .title-bar {
+      margin-bottom: 10px;
+    }
+
+    .implant-inner {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: black;
+      padding: 10px;
+    }
+
+    .implant-inner img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid lime;
+      box-shadow: 0 0 10px lime;
+    }
+
+    .gif-container {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  </style>
+  <script>
+    function displayGif(gifName, terminalOutput) {
+      document.getElementById('gif-container').innerHTML = `<img src="${gifName}" alt="Gif" />`;
+
+      var terminal = document.querySelector('.terminal');
+      terminal.innerHTML += `<br> > Displaying ${gifName}...<br>`;
+      terminal.innerHTML += terminalOutput || `> Loading ${gifName}...<br>`;
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  </script>
+</head>
+<body>
+
+  <marquee behavior="scroll" direction="left">
+    ⚠️ VonDingle Enterprises - Internal Access Portal Detected ⚠️
+  </marquee>
+
+  <div class="main-container">
+    <div class="content-columns">
+
+      <div class="left-column">
+        <div class="window">
+          <div class="title-bar">📂 SYSTEM NOTICE - CEO CONNECTED</div>
+          <p><span class="label">User:</span> <strong>Buster VonDingle</strong> (Acting CEO)</p>
+          <p class="blink">Unauthorized access will be reported to internal security nodes.</p>
+          <p>This interface is intended for company staff and implant distributors only.</p>
+          <img src="buster-glow.gif" alt="Caution" class="gif" />
+        </div>
+
+        <div class="window">
+          <div class="title-bar">📁 FILE SERVER - DOWNLOADS</div>
+          <ul>
+            <li><span class="label"></span> <a href="vx_overridepatch.html">VX_OverridePatch.exe</a></li>
+            <li><span class="label"></span> <a href="implant_diagnostics.html">Implant_Diagnostics_v1.9.txt</a></li>
+            <li><span class="label"></span> <a href="dinglesoft_hacklogs_2003.html">DingleSoft_Hacklogs_2003.zip</a></li>
+          </ul>
+        </div>
+
+        <div class="window">
+          <div class="title-bar">📡 NETWORK STATUS</div>
+          <p><span class="label">📶 Uplink:</span> Stable</p>
+          <p><span class="label">📉 Packet Loss:</span> 0%</p>
+          <img src="signal-bars.gif" alt="Signal Strength" class="gif" />
+        </div>
+      </div>
+
+
+      <div class="right-column">
+        <div class="implant-display">
+          <div class="title-bar">🧠 Implant Visual Diagnostic - Model X4</div>
+          <div class="implant-inner">
+            <a href="#" onclick="displayGif('implant-scan-1.gif', 'ERROR: Unable to retrieve implant data. Try again later.')"><span class="label">Scan</span></a>
+            <a href="#" onclick="displayGif('implant-stats.gif', 'Implant statistics loading... please wait.')"><span class="label">Stats</span></a>
+            <a href="#" onclick="displayGif('synaptic-overdrive.gif', 'Synaptic overdrive enabled. Neural enhancements active.')"><span class="label">Overdrive</span></a>
+            <a href="#" onclick="displayGif('biochip-loop.gif', 'Biochip loop running successfully.')"><span class="label">BioChip</span></a>
+          </div>
+        </div>
+
+        <div class="gif-container" id="gif-container">
+                </div>
+
+        <div class="terminal">
+          > connect uplink.vondingle.lan<br>
+          Establishing secure connection... <br>
+          Handshake OK [ENCRYPTED]<br>
+          Injecting diagnostic payload to ImplantGroup-47...<br>
+          ERROR: sector:0xBADC0DE - Memory leak detected<br>
+          &nbsp;<br>
+          > sudo ./vx_override --force --ignore-safety<br>
+          WARNING: Failsafe bypass triggered<br>
+          VX override engaged...
+        </div>
+      </div>
+
+<div class="admin-panel">
+  <div class="window">
+    <div class="title-bar">🛡️ ADMIN PANEL</div>
+    <p><span class="label">Access Level:</span> <strong>Root</strong></p>
+    <p><span class="label">Logs:</span> Intrusion attempt flagged on 05/09</p>
+    <p><span class="label">Overrides Enabled:</span></p>
+    <ul>
+      <li>Failsafe Bypass</li>
+      <li>Remote Shell</li>
+      <li>Biochip Sync</li>
+    </ul>
+    <button onclick="alert('ERROR: 409...Memory dumped to logs')">🛑 Lockdown System</button>
+  </div>
+
+  <div class="window">
+    <div class="title-bar">📷 SECURITY CAMERA FEEDS</div>
+    <p><span class="label">CAM 01:</span> Main Hallway (OFFLINE)</p>
+    <img src="camera-feed1.gif" alt="Camera Feed 1" class="gif" />
+
+    <p><span class="label">CAM 02:</span> Implant Lab (SIGNAL INTURRUPTED)</p>
+    <img src="camera-feed2-glitch.gif" alt="Camera Feed 2" class="gif" />
+
+    <p><span class="label">CAM 03:</span> <strong>CEO Live Feed</strong> (External Stream)</p>
+    <a href="https://twitch.tv/bustervondingle" target="_blank">
+    <img src="camera-live.gif" alt="CEO Live Feed" class="gif" />
+    </a>
+
+  </div>
+    <div class="window">
+  <div class="title-bar">🔴 Protocol 503 - Synth Neurolink </div>
+  <button onclick="activateProtocol503()" style="font-size: 20px; padding: 20px 40px; background-color: red; color: white; border: none; cursor: pointer; width: 100%; border-radius: 10px; font-weight: bold;">
+    ⚠ Activate Protocol 52 ⚠
+  </button>
+  <div id="protocol-status" style="margin-top: 20px; color: red; display: none;">
+    <p><strong> > WARNING:</strong> Protocol 503 activation in progress... Neural synchronization initiating...</p>
+    <p><strong> > Mind Control Sequence:</strong> Complete. User now under control.</p>
+  </div>
+</div>
+
+<script>
+  function activateProtocol503() {
+
+    const protocolStatus = document.getElementById('protocol-status');
+    protocolStatus.style.display = 'block';
+
+    setTimeout(() => {
+      protocolStatus.innerHTML += '<p class="label"><strong> > Mind control successfully activated. Neuron Supression initialized on Subject.</strong></p>';
+    }, 3000);
+  }
+</script>
+
+</div>
+
+
+  </div>
+
+</body>
+</html>
